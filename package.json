@@ -11,9 +11,15 @@
   },
   "dependencies": {
     "@react-native/new-app-screen": "0.83.1",
+    "@tamagui/babel-plugin": "^1.142.0",
+    "@tamagui/config": "^1.142.0",
+    "@tamagui/react-native-media-driver": "^1.142.0",
+    "@tamagui/shorthands": "^1.142.0",
+    "@tamagui/themes": "^1.142.0",
     "react": "19.2.0",
     "react-native": "0.83.1",
-    "react-native-safe-area-context": "^5.5.2"
+    "react-native-safe-area-context": "^5.5.2",
+    "tamagui": "^1.142.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

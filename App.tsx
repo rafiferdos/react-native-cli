@@ -1,73 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   Text,
-  Pressable,
   StyleSheet,
   StatusBar,
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-
-
-// Pure React Native counter - no Tamagui, to verify app works
+import { TamaguiProvider } from 'tamagui';
+import Form from './src/components/Form';
+import config from './tamagui.config';
+// App with Tamagui Form component
 const App: React.FC = () => {
-  const [count, setCount] = useState(0);
-
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor="#7C3AED" />
+    <TamaguiProvider config={config} defaultTheme="light">
 
-        {/* Header */}
-        <View style={styles.header}>
-          <Text style={styles.title}>Counter App</Text>
-          <Text style={styles.subtitle}>React Native</Text>
-        </View>
-
-        {/* Counter Display */}
-        <View style={styles.content}>
-          <View style={styles.counterCard}>
-            <Text style={styles.label}>CURRENT COUNT</Text>
-            <Text style={[styles.counter, { color: count >= 0 ? '#7C3AED' : '#EF4444' }]}>
-              {count}
-            </Text>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container}>
+          <StatusBar barStyle="light-content" backgroundColor="#7C3AED" />
+          <View style={styles.header}>
+            <Text style={styles.title}>Tamagui Form</Text>
+            <Text style={styles.subtitle}>React Native</Text>
           </View>
-
-          {/* Buttons */}
-          <View style={styles.buttonRow}>
-            <View style={styles.buttonContainer}>
-              <Pressable
-                style={[styles.circleButton, { backgroundColor: '#10B981' }]}
-                onPress={() => setCount(c => c - 1)}
-              >
-                <Text style={styles.buttonText}>−</Text>
-              </Pressable>
-              <Text style={styles.buttonLabel}>Decrease</Text>
-            </View>
-
-            <View style={styles.buttonContainer}>
-              <Pressable
-                style={[styles.circleButton, { backgroundColor: '#64748B' }]}
-                onPress={() => setCount(0)}
-              >
-                <Text style={styles.buttonText}>↺</Text>
-              </Pressable>
-              <Text style={styles.buttonLabel}>Reset</Text>
-            </View>
-
-            <View style={styles.buttonContainer}>
-              <Pressable
-                style={[styles.circleButton, { backgroundColor: '#7C3AED' }]}
-                onPress={() => setCount(c => c + 1)}
-              >
-                <Text style={styles.buttonText}>+</Text>
-              </Pressable>
-              <Text style={styles.buttonLabel}>Increase</Text>
-            </View>
+          <View style={styles.content}>
+            <Form size="$4" />
           </View>
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </TamaguiProvider>
   );
 };
 
